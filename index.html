@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101114" />
+  <title>VEILBOUND — The Demon Trials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Veilbound home"><span class="brand-mark">V</span><span>VEIL<span class="brand-light">BOUND</span></span></a>
+      <div class="season-tag"><span class="live-dot"></span> THE DEMON TRIALS <span class="season-num">I</span></div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="battle"><span class="nav-icon">⚔</span><span>Trial grounds</span><span class="nav-arrow">↗</span></button>
+        <button class="nav-item" data-view="training"><span class="nav-icon">✳</span><span>Training hall</span></button>
+        <button class="nav-item" data-view="codex"><span class="nav-icon">◈</span><span>Demon codex</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="master-card"><div class="master-avatar">✦</div><div><div class="eyebrow">ASPIRING MASTER</div><strong id="master-level">Novice · Lv. 1</strong></div><div class="rank-mark">I</div></div>
+        <div class="sidebar-note"><span class="note-icon">⌁</span><span>Power is earned.<br>Choose your path wisely.</span></div>
+        <div class="sidebar-footer"><span>BUILD 01.09</span><span class="sound-state">SOUND OFF</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumb"><span>THE VEIL</span><span class="crumb-sep">/</span><strong id="page-crumb">TRIAL GROUNDS</strong></div>
+        <div class="topbar-right"><div class="resource-pill"><span class="resource-icon">✧</span><span id="essence-count">0</span><span class="resource-label">ESSENCE</span></div><button class="profile-button" aria-label="Player profile">A</button></div>
+      </header>
+      <section id="view-battle" class="view active-view">
+        <div class="page-heading"><div><div class="eyebrow accent-eyebrow"><span class="eyebrow-line"></span> YOUR FIRST BINDING</div><h1>Prove your <em>worth.</em></h1><p class="heading-copy">Mastery isn't given. It's forged one decision at a time.</p></div><div class="trial-status"><span class="status-pip"></span><span id="trial-label">TRIAL 01 / 03</span></div></div>
+        <div class="battle-layout">
+          <section class="combat-column" aria-label="Battle">
+            <div class="arena" id="arena">
+              <div class="arena-grid"></div><div class="arena-glow"></div>
+              <div class="arena-topline"><span><i class="tiny-diamond"></i> THE ASHEN CIRCLE</span><span class="battle-round" id="round-label">READY</span></div>
+              <div class="arena-art" aria-hidden="true"><div class="sigil-ring ring-one"></div><div class="sigil-ring ring-two"></div><div class="sigil-core">✦</div><div class="ember e1"></div><div class="ember e2"></div><div class="ember e3"></div></div>
+              <div class="combatants">
+                <div class="combatant player-combatant"><div class="combatant-name"><span class="faction-mark player-mark">✦</span><div><span class="eyebrow">YOUR BOUND</span><strong id="active-demon-name">Kairo, Cinderling</strong></div></div><div class="health-row"><span class="bar-label">VIT</span><div class="health-track"><div id="player-health-bar" class="health-fill player-fill" style="width:100%"></div></div><span id="player-health-text" class="health-value">42 / 42</span></div><div class="combat-status" id="player-status"></div></div>
+                <div class="versus">VS</div>
+                <div class="combatant enemy-combatant"><div class="combatant-name"><div class="enemy-icon" id="enemy-icon">◉</div><div><span class="eyebrow">OPPONENT</span><strong id="enemy-name">Hollow Wisp</strong></div></div><div class="enemy-intent" id="enemy-intent"><span class="intent-icon">⌁</span><span>Waiting for you</span></div><div class="health-row"><span class="bar-label">VIT</span><div class="health-track"><div id="enemy-health-bar" class="health-fill enemy-fill" style="width:100%"></div></div><span id="enemy-health-text" class="health-value">38 / 38</span></div></div>
+              </div>
+              <div class="arena-bottom"><button id="battle-hint" class="start-trial-button">Tap the arena to begin your trial <span>→</span></button><span class="turn-marker" id="turn-marker">YOUR TURN</span></div>
+            </div>
+            <div class="battle-controls"><div class="energy-wrap"><div class="energy-caption"><span>YOUR RESOLVE</span><span><b id="energy-count">3</b> / 3</span></div><div class="energy-pips" id="energy-pips"><i class="filled"></i><i class="filled"></i><i class="filled"></i></div></div><button id="end-turn" class="end-turn-button" disabled>END TURN <span>→</span></button></div>
+            <div class="hand-heading"><div><span class="eyebrow">YOUR HAND</span><span class="hand-subtitle" id="hand-instruction">Choose cards to shape the fight</span></div><span class="card-count" id="card-count">05 CARDS</span></div>
+            <div class="hand" id="hand"></div>
+          </section>
+          <aside class="roster-panel"><div class="panel-heading"><div><span class="eyebrow">YOUR COVEN</span><h2>Bound demons</h2></div><span class="roster-count">03</span></div><p class="panel-copy">Each bond grows through the trials. Pick the right ally for the right fight.</p><div id="roster-list" class="roster-list"></div><div class="strategy-tip"><div class="tip-icon">✧</div><div><span class="eyebrow">FIELD NOTE</span><p id="strategy-tip">Read their intent. A ward now can turn the tide later.</p></div></div><button class="text-link" data-view="training">TRAIN YOUR BOUND <span>↗</span></button></aside>
+        </div>
+      </section>
+      <section id="view-training" class="view">
+        <div class="page-heading"><div><div class="eyebrow accent-eyebrow"><span class="eyebrow-line"></span> GROW THROUGH DISCIPLINE</div><h1>Strength is <em>earned.</em></h1><p class="heading-copy">Invest your essence. Shape your demon. Become more than you were.</p></div><div class="trial-status training-badge">✧ <span id="training-essence">0 ESSENCE</span></div></div>
+        <div class="training-layout"><div class="training-roster" id="training-roster"></div><aside class="training-aside"><div class="training-symbol">✳</div><span class="eyebrow">THE OLD MASTERS SAY</span><h2>Talent opens<br>the door. <em>Practice</em><br>keeps it open.</h2><p>Every demon has a path. Train deliberately and their true nature will awaken.</p><div class="training-rule"><span>01</span><span>Wins grant essence</span></div><div class="training-rule"><span>02</span><span>Training raises base vitality</span></div><div class="training-rule"><span>03</span><span>Level 3 unlocks a signature</span></div></aside></div>
+      </section>
+      <section id="view-codex" class="view">
+        <div class="page-heading"><div><div class="eyebrow accent-eyebrow"><span class="eyebrow-line"></span> RECORD OF THE BOUND</div><h1>The demon <em>codex.</em></h1><p class="heading-copy">Three souls. Three paths. A thousand ways to master them.</p></div><div class="trial-status">✧ FIELD GUIDE</div></div>
+        <div class="codex-grid" id="codex-grid"></div>
+        <div class="codex-foot"><span class="codex-star">✦</span><p>Every legend began with a first bond.<br><strong>Yours is still being written.</strong></p><button class="text-link" data-view="battle">RETURN TO THE TRIAL <span>↗</span></button></div>
+      </section>
+      <footer class="page-footer"><span>VEILBOUND <b>·</b> THE DEMON TRIALS</span><span>TRAIN. ADAPT. ASCEND.</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="modal-root"></div>
+  <script src="app.js"></script>
+</body>
+</html>
