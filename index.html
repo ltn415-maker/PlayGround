@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#100d18"><title>ASHEN OATH — The Underhall</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="game-shell">
+  <canvas id="game" aria-label="Ashen Oath game arena"></canvas>
+  <div class="vignette"></div><div class="grain"></div>
+  <header class="topbar"><div class="brand"><span class="brand-mark">✦</span><div><b>ASHEN OATH</b><small>THE UNDERHALL</small></div></div><div class="room-label"><span class="live-dot"></span><span id="room-name">THE ASHEN GALLERY</span></div><button id="sound-btn" class="icon-btn" aria-label="Toggle sound">♫</button></header>
+  <section id="hud" class="hud hidden" aria-live="polite">
+    <div class="health-wrap"><div class="health-head"><span>VITALITY</span><b id="health-text">100 / 100</b></div><div class="health-track"><i id="health-fill"></i></div><div class="heart-row" id="hearts"></div></div>
+    <div class="wave-wrap"><span>ENCOUNTER</span><strong id="wave-number">I</strong><small id="enemy-count">3 WRAITHS REMAIN</small></div>
+    <div class="right-hud"><div class="boon-tag"><span>✧</span><div><small>BOON OF THE HUNT</small><b id="boon-name">—</b></div></div><div class="dash-pips" id="dash-pips"></div></div>
+  </section>
+  <div id="toast" class="toast"></div>
+  <section id="start-screen" class="screen visible">
+    <div class="intro-copy"><div class="eyebrow"><i></i> A DESCENT INTO THE UNDERHALL <i></i></div><h1>BREAK THE<br><em>ASHEN OATH</em></h1><p>Three doors. One way out.<br>Choose your weapon, then clear the gallery.</p><div class="controls-note"><span>WASD</span> MOVE <b>·</b> <span>CLICK</span> ATTACK <b>·</b> <span>SPACE</span> DASH</div></div>
+    <div class="weapon-section"><div class="select-heading"><span>01 — CHOOSE YOUR ARMAMENT</span><i></i></div><div class="weapon-grid">
+      <button class="weapon-card selected" data-weapon="spear"><span class="weapon-index">I</span><span class="weapon-art spear-art">♢</span><span class="weapon-name">GILDED SPEAR</span><span class="weapon-desc">Reach out. Keep them there.</span><span class="weapon-stats"><i style="--stat:88%"></i><small>REACH</small><i style="--stat:55%"></i><small>FORCE</small></span><span class="weapon-pick">SELECTED</span></button>
+      <button class="weapon-card" data-weapon="blades"><span class="weapon-index">II</span><span class="weapon-art blade-art">✣</span><span class="weapon-name">TWIN EMBERS</span><span class="weapon-desc">A dance made of endings.</span><span class="weapon-stats"><i style="--stat:45%"></i><small>REACH</small><i style="--stat:92%"></i><small>FORCE</small></span><span class="weapon-pick">CHOOSE</span></button>
+      <button class="weapon-card" data-weapon="bow"><span class="weapon-index">III</span><span class="weapon-art bow-art">⌒</span><span class="weapon-name">NIGHTFALL BOW</span><span class="weapon-desc">Let the dark fly first.</span><span class="weapon-stats"><i style="--stat:100%"></i><small>REACH</small><i style="--stat:68%"></i><small>FORCE</small></span><span class="weapon-pick">CHOOSE</span></button>
+    </div><button id="begin-btn" class="begin-btn">ENTER THE GALLERY <span>↗</span></button></div>
+    <div class="screen-foot"><span>ARROWS OR WASD TO MOVE</span><span>THE HOUSE ALWAYS COLLECTS</span><span>ESC — PAUSE</span></div>
+  </section>
+  <section id="pause-screen" class="screen modal hidden"><div class="modal-card"><div class="eyebrow">A MOMENT'S REPRIEVE</div><h2>THE HOUSE<br><em>IS WAITING.</em></h2><p>Your oath is not yet fulfilled.</p><button id="resume-btn" class="begin-btn">RETURN TO THE FIGHT <span>↗</span></button><button id="restart-btn" class="text-btn">ABANDON THIS DESCENT</button></div></section>
+  <section id="end-screen" class="screen modal hidden"><div class="modal-card"><div class="eyebrow" id="end-eyebrow">THE GALLERY FALLS SILENT</div><h2 id="end-title">OATH<br><em>FULFILLED.</em></h2><p id="end-copy">The Underhall remembers your name.</p><div class="run-stats"><span>ROOMS CLEARED <b id="stat-rooms">3</b></span><span>FOES VANQUISHED <b id="stat-kills">0</b></span></div><button id="again-btn" class="begin-btn">DESCEND AGAIN <span>↗</span></button></div></section>
+  <div id="mobile-controls" class="mobile-controls hidden"><div class="dpad"><button data-dir="up">▲</button><div><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div></div><div class="action-pad"><button id="mobile-dash">DASH</button><button id="mobile-attack">ATTACK</button></div></div>
+  <footer id="game-footer" class="game-footer hidden"><span>WASD <i>MOVE</i></span><span>CLICK <i>ATTACK</i></span><span>SPACE <i>DASH</i></span><span>ESC <i>PAUSE</i></span><span class="footer-tip">A CLEAR PATH IS NEVER A KIND ONE</span></footer>
+</main>
+<script src="game.js"></script>
+</body></html>
